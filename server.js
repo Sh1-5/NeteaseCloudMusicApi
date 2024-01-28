@@ -187,6 +187,10 @@ async function consturctServer(moduleDefs) {
    */
   app.use(cache('2 minutes', (_, res) => res.statusCode === 200))
 
+  app.get("/debug/nodever", (req, res) => {
+      res.send(process.version).end();
+  });
+
   /**
    * Special Routers
    */
